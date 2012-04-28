@@ -57,4 +57,16 @@ describe 'Utils' do
     end
   end
 
+  describe '#increments' do
+    it 'increments the elements of the given array that correspond to the given indices' do
+      increments([1, 2, 3], [0, 1]).should include([2, 2, 3], [1, 3, 3])
+      increments([5, 4, 1, 3], [1, 3]).should include([5, 5, 1, 3], [5, 4, 1, 4])
+    end
+
+    it 'preserves the index ordering' do
+      increments([5, 2], [1, 0]).should == [[5, 3], [6, 2]]
+      increments([1, 2, 3], [1, 2, 0]).should == [[1, 3, 3], [1, 2, 4], [2, 2, 3]]
+    end
+  end
+
 end

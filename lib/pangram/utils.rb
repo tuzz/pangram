@@ -19,3 +19,11 @@ end
 def vector_subtraction(a, b)
   a.zip(b).map { |a, b| (a - b) }
 end
+
+def increments(array, indices)
+  indices.map do |i|
+    dup = array.dup
+    dup[i] += 1
+    dup
+  end
+end
