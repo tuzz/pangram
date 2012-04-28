@@ -93,4 +93,13 @@ describe 'Pool' do
     end
   end
 
+  describe '#solved?' do
+    it 'returns true if the 0 key is present' do
+      add_to_pool([1], 1, 1)
+      solved?.should be_false
+      add_to_pool([1], 0, 1)
+      solved?.should be_true
+    end
+  end
+
 end

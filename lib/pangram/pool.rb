@@ -29,3 +29,7 @@ end
 def prune_pool
   remove_last while @pool_count > PRUNE_ABOVE
 end
+
+def solved?
+  !pool[0].empty?
+end
