@@ -3,7 +3,9 @@ require 'spec_helper'
 describe 'Pangram' do
 
   describe '#sentence' do
-    pending
+    it 'constructs a sentence from an array' do
+      sentence([1, 2, 3, 4, 5]).should == "This sentence contains one a, two b's, three c's, four d's and five e's."
+    end
   end
 
 end
