@@ -31,7 +31,7 @@ def final_join(regenerate = false)
 end
 
 def change_sentence_every(frequency)
-  frequency /= characters.count
+  frequency /= language_significance.count
   @sentence_count ||= 0
   @sentence_count += 1
   if @sentence_count == frequency
