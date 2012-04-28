@@ -3,6 +3,10 @@ def pool
   @pool ||= Hash.new { |outer, error| outer[error] = Hash.new { |inner, index| inner[index] = [] } }
 end
 
+def reset_pool
+  @pool = Hash.new { |outer, error| outer[error] = Hash.new { |inner, index| inner[index] = [] } }
+end
+
 def add_to_pool(array, error, index)
   pool[error][index] << array
   @pool_count += 1 unless pool[error][index].uniq!

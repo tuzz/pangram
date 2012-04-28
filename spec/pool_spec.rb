@@ -135,4 +135,13 @@ describe 'Pool' do
     end
   end
 
+  describe '#reset_pool' do
+    it 'resets the pool' do
+      add_to_pool([1], 1, 1)
+      add_to_pool([2], 3, 4)
+      reset_pool
+      pool.should == {}
+    end
+  end
+
 end
