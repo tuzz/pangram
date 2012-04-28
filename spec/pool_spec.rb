@@ -112,7 +112,7 @@ describe 'Pool' do
     end
 
     it 'prunes the pool' do
-      999.times { add_to_pool([1], 1, 1) }
+      (PRUNE_ABOVE - 1).times { add_to_pool([1], 1, 1) }
       2.times   { add_to_pool([2], 2, 2) }
       prune_pool
       @pool_count.should == PRUNE_ABOVE
