@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Pangram' do
+describe 'Language' do
 
   it 'has some specs'
 

@@ -1,19 +1,3 @@
-def frequencies(string)
-  CHARACTERS.map { |c| string.downcase.count c }
-end
-
-def word_frequencies
-  @word_frequencies ||= (0..99).map { |i| frequencies(i.to_words) }
-end
-
-def vector_addition(*arrays)
-  arrays[0].zip(*arrays[1..-1]).map { |a| a.inject(:+) }
-end
-
-def vector_subtraction(a, b)
-  a.zip(b).map { |a, b| (a - b) }
-end
-
 def base
   @base ||= frequencies(PREFIX + FINAL_JOIN).map { |i| i + 1 }
 end
