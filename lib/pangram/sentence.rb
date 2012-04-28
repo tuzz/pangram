@@ -1,5 +1,5 @@
 def sentence(array)
-  words = array.zip(CHARACTERS).map { |i, c| "#{i.to_words} #{c}#{"'s" if i > 1}"}
+  words = array.zip(characters).map { |i, c| "#{i.to_words} #{c}#{"'s" if i > 1}"}
   delimited = words[0..-2].join(', ') << " #{final_join} " << words[-1]
   "#{prefix} #{delimited}."
 end

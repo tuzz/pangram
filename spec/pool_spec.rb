@@ -110,10 +110,10 @@ describe 'Pool' do
   end
 
   describe '#prune_pool' do
-    it 'does nothing if the pool_count is less than the PRUNE_ABOVE constant' do
+    it 'does nothing if the pool_count is less than the given threshold' do
       add_to_pool([1, 2, 3], 1, 1)
       before = pool
-      prune_pool
+      prune_pool(10)
       before.should == pool
     end
 
@@ -121,9 +121,8 @@ describe 'Pool' do
       add_to_pool([1], 1, 1)
       add_to_pool([1], 2, 2)
       add_to_pool([1], 2, 1)
-      @pool_count = PRUNE_ABOVE + 1
-      prune_pool
-      pool[2][2].should be_empty
+      prune_pool(1)
+      pool.should == { 1 => { 1 => [[1]] } }
     end
   end
 

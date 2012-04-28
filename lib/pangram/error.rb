@@ -3,7 +3,7 @@ def base
 end
 
 def plural_index
-  @plural_index ||= CHARACTERS.index('s')
+  @plural_index ||= characters.index('s')
 end
 
 def pluralize(array)

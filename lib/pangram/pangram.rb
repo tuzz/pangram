@@ -1,6 +1,3 @@
-CHARACTERS = ('a'..'z').to_a
-PRUNE_ABOVE = 10000
-
 def find_a_solution
   add_to_pool(seed, error(seed), 0)
   while !solved? do
@@ -9,7 +6,7 @@ def find_a_solution
     next_attempts.each_with_index do |attempt, index|
       add_to_pool(attempt, error(attempt), index)
     end
-    prune_pool
+    prune_pool(10000)
     show_progress
   end
 end

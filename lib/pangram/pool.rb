@@ -36,8 +36,8 @@ def remove_last_from_pool
   last
 end
 
-def prune_pool
-  remove_last_from_pool while @pool_count > PRUNE_ABOVE
+def prune_pool(threshold)
+  remove_last_from_pool while @pool_count > threshold
 end
 
 def solved?

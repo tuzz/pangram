@@ -1,5 +1,9 @@
+def characters
+  @characters ||= ('a'..'z').to_a
+end
+
 def frequencies(string)
-  CHARACTERS.map { |c| string.downcase.count c }
+  characters.map { |c| string.downcase.count c }
 end
 
 def word_frequencies
