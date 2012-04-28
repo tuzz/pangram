@@ -2,12 +2,6 @@ require 'spec_helper'
 
 describe 'Utils' do
 
-  describe '#sentence' do
-    it 'constructs a sentence from an array' do
-      sentence([1, 2, 3, 4, 5]).should == "This sentence contains one a, two b's, three c's, four d's and five e's."
-    end
-  end
-
   describe '#frequencies' do
     it 'creates an array of the frequency for each character' do
       frequencies('aaabbc').should == [3, 2, 1] + [0] * 23

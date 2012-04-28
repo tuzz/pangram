@@ -1,5 +1,5 @@
 def base
-  @base ||= frequencies(PREFIX + FINAL_JOIN).map { |i| i + 1 }
+  @base ||= frequencies(prefix + final_join).map { |i| i + 1 }
 end
 
 def plural_index
