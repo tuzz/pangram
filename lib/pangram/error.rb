@@ -7,6 +7,7 @@ def plural_index
 end
 
 def pluralize(array)
+  array = array.dup
   plurals = array.count { |i| i > 1 }
   plurals += 1 if plurals > 1 and array[plural_index] <= 1
   array[plural_index] += plurals

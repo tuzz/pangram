@@ -33,6 +33,13 @@ describe 'Error' do
       pluralize([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0]).
         should == [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0]
     end
+
+    it 'does not mutate the given array' do
+      array = (1..26).to_a
+      before = array.dup
+      pluralize(array)
+      array.should == before
+    end
   end
 
   describe '#seed' do
