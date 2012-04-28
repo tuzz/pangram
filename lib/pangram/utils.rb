@@ -27,3 +27,12 @@ def increments(array, indices)
     dup
   end
 end
+
+def show_progress
+  minimum = pool.keys.min
+  @minimum ||= minimum
+  return if @minimum <= minimum
+  @minimum = minimum
+  puts "\n#{minimum} errors:"
+  puts sentence(pool[minimum].values[0][0])
+end
