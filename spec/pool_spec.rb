@@ -37,8 +37,14 @@ describe 'Pool' do
     end
 
     it 'increments the pool count' do
-      3.times { add_to_pool([1], 1, 1) }
+      3.times { |i| add_to_pool([i], 1, 1) }
       @pool_count.should == 3
+    end
+
+    it 'does not add duplicate arrays to the same inner array' do
+      2.times { add_to_pool([1], 1, 1) }
+      @pool_count.should == 1
+      pool.should == { 1 => { 1 => [[1]] } }
     end
   end
 
@@ -112,11 +118,12 @@ describe 'Pool' do
     end
 
     it 'prunes the pool' do
-      (PRUNE_ABOVE - 1).times { add_to_pool([1], 1, 1) }
-      2.times   { add_to_pool([2], 2, 2) }
+      add_to_pool([1], 1, 1)
+      add_to_pool([1], 2, 2)
+      add_to_pool([1], 2, 1)
+      @pool_count = PRUNE_ABOVE + 1
       prune_pool
-      @pool_count.should == PRUNE_ABOVE
-      pool[2][2].count.should == 1
+      pool[2][2].should be_empty
     end
   end
 

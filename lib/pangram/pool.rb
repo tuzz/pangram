@@ -5,7 +5,7 @@ end
 
 def add_to_pool(array, error, index)
   pool[error][index] << array
-  @pool_count += 1
+  @pool_count += 1 unless pool[error][index].uniq!
 end
 
 def remove_keys_if_necessary(error, index)
