@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe 'Pangram' do
 
-  it 'has some specs'
+  describe '#sentence' do
+    pending
+  end
 
 end
