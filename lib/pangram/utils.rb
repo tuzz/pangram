@@ -9,7 +9,7 @@ def frequencies(string)
 end
 
 def word_frequencies
-  @word_frequencies ||= (0..99).map { |i| frequencies(i.to_words) }
+  @word_frequencies ||= [([0] * 26)] + (1..99).map { |i| frequencies(i.to_words) }
 end
 
 def vector_addition(*arrays)

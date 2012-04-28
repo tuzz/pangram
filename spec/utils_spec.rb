@@ -34,6 +34,10 @@ describe 'Utils' do
       word_frequencies[100].should be_nil
     end
 
+    it 'does not have any frequencies for zero' do
+      word_frequencies[0].should == [0] * 26
+    end
+
     it 'caches the result' do
       @word_frequencies.should be_nil
       word_frequencies
