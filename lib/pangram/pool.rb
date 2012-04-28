@@ -12,24 +12,34 @@ def remove_keys_if_necessary(error, index)
   index_count = pool[error][index].count
   if index_count == 0
     pool[error].delete(index)
-    pool.delete(error) if pool.count == 1
+    pool.delete(error) if pool[error].count == 0
   else
     false
   end
 end
 
-def remove_last
-  error = pool.keys.max
-  index = pool[error].keys.max
-  pool[error][index].pop
+def remove_first_from_pool
+  error = pool.keys.min
+  index = pool[error].keys.min
+  first = pool[error][index].shift
   remove_keys_if_necessary(error, index)
   @pool_count -= 1
+  first
+end
+
+def remove_last_from_pool
+  error = pool.keys.max
+  index = pool[error].keys.max
+  last = pool[error][index].pop
+  remove_keys_if_necessary(error, index)
+  @pool_count -= 1
+  last
 end
 
 def prune_pool
-  remove_last while @pool_count > PRUNE_ABOVE
+  remove_last_from_pool while @pool_count > PRUNE_ABOVE
 end
 
 def solved?
-  !pool[0].empty?
+  pool.has_key?(0)
 end

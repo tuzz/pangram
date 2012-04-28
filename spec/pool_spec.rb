@@ -58,7 +58,30 @@ describe 'Pool' do
     end
   end
 
-  describe '#remove_last' do
+  describe '#remove_first_from_pool' do
+    before do
+      add_to_pool([1], 1, 1)
+      add_to_pool([2], 1, 1)
+      add_to_pool([3], 2, 2)
+    end
+
+    it 'removes the first inner array from the pool' do
+      remove_first_from_pool
+      pool[1][1].should == [[2]]
+    end
+
+    it 'decrements the pool_count' do
+      remove_first_from_pool
+      @pool_count.should == 2
+    end
+
+    it 'returns the removed array' do
+      remove_first_from_pool.should == [1]
+    end
+  end
+
+
+  describe '#remove_last_from_pool' do
     before do
       add_to_pool([1], 1, 1)
       add_to_pool([2], 2, 2)
@@ -66,13 +89,17 @@ describe 'Pool' do
     end
 
     it 'removes the last inner array from the pool' do
-      remove_last
+      remove_last_from_pool
       pool[2][2].should == [[2]]
     end
 
     it 'decrements the pool_count' do
-      remove_last
+      remove_last_from_pool
       @pool_count.should == 2
+    end
+
+    it 'returns the removed array' do
+      remove_last_from_pool.should == [3]
     end
   end
 
