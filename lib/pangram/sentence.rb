@@ -29,3 +29,17 @@ def final_join(regenerate = false)
   return @final_join unless regenerate or @final_join.nil?
   @final_join = generate_final_join
 end
+
+def change_sentence_every(frequency)
+  frequency /= characters.count
+  @sentence_count ||= 0
+  @sentence_count += 1
+  if @sentence_count == frequency
+    @sentence_count = 0
+    prefix(true)
+    final_join(true)
+    reset_pool
+    add_to_pool(seed, error(seed), 0)
+    @minimum = nil
+  end
+end

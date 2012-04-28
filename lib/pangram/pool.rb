@@ -4,6 +4,7 @@ def pool
 end
 
 def reset_pool
+  @pool_count = 0
   @pool = Hash.new { |outer, error| outer[error] = Hash.new { |inner, index| inner[index] = [] } }
 end
 

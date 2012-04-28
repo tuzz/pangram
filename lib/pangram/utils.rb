@@ -34,3 +34,8 @@ def show_progress
   puts "\n#{minimum} errors:"
   puts sentence(pool[minimum].values[0][0])
 end
+
+def alert
+  5.times { print "\a*** "; sleep 0.5 }
+  "A solution has been found"
+end
