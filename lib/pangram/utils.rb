@@ -1,15 +1,3 @@
-def characters
-  @characters ||= ('a'..'z').to_a
-end
-
-def frequencies(string)
-  characters.map { |c| string.downcase.count c }
-end
-
-def word_frequencies
-  @word_frequencies ||= [([0] * 26)] + (1..99).map { |i| frequencies(i.to_words) }
-end
-
 def vector_addition(*arrays)
   arrays[0].zip(*arrays[1..-1]).map { |a| a.inject(:+) }
 end
