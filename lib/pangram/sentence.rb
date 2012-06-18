@@ -8,10 +8,10 @@ def generate_prefix
   prefix = ''
   prefix << ['This sentence', 'This pangram', 'This self-enumerating pangram'].sample
   name = ['Christopher Patuzzo', 'cpatuzzo'].sample
-  verb = ['generated', 'discovered', 'built', 'found', 'crafted'].sample
+  verb = ['generated', 'discovered', 'built', 'found', 'crafted', 'computed'].sample
   prefix << [", #{verb} by #{name},", " was #{verb} by #{name} and it"].sample
-  contains = [' contains', ' uses', ' has', ' employs', ' makes use of'].sample
-  contains << ['', ' exactly', ' precisely', ' no more than', ' no less than', ' no more or less than'].sample
+  contains = [' contains', ' uses', ' has', ' employs', ' makes use of', ' utilises'].sample
+  contains << ['', ' exactly', ' precisely', ' no more or less than', ' no more nor less than'].sample
   prefix << contains
 end
 
