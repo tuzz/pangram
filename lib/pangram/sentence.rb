@@ -37,11 +37,10 @@ def change_sentence_every(frequency)
   if @sentence_count == frequency
     @sentence_count = 0
     @base = nil
-    @seed = nil
     @minimum = nil
     prefix(true)
     final_join(true)
     reset_pool
-    add_to_pool(seed, error(seed), 0)
+    add_to_pool(base, error(base), 0)
   end
 end
